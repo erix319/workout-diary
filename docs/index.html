@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="ie=edge"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="css/main.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""
+		/>
+
+		<meta
+			name="description"
+			content="Track workouts, map your routes, and review your progress with Workout Diary."
+		/>
+		<meta
+			name="keywords"
+			content="workout diary, fitness tracker, running log, cycling log, HTML, CSS, JavaScript"
+		/>
+		<meta
+			name="author"
+			content="George Pavlov"
+		/>
+
+		<link
+			href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAApItLeKSTX7igj0O4oI9DuKCPQ7igj0O4oI9DuKCPQ7igj0O4oI9DuKSTY7iMcr+4ZF4juIxut7iok2u4pItLeKCLS9Cwl3f8rJNf/KyTX/ysk1/8rJNf/KyTX/ysk1/8rJNf/KyTX/y8n6/8RDlT/CAcn/xsXh/8tJuH/KCLT9Cgj0O4rJNf/KiPS/yoj0v8qI9L/KiPS/yoj1P8qI9T/KiPS/ysj1f8oIsr/DgtE/yoj0P8tJeD/KyTW/ygj0O4oI9DuKyTX/yoj0v8qI9L/KiPS/ywl3f8rJNn/KyPV/ysj1f8tJuH/FRFp/xIPXP8uJub/KiPS/ysk1/8oI9DuKCPQ7isk1/8sJd7/LSbj/y0m4v8hG6T/CQcr/w8NTf8uJuT/MCjv/wgHKf8bFob/LSXh/yoj0v8rJNf/KCPQ7ikj1O4qI9P/GxeI/xYTb/8TEF3/DgxH/xMQX/8AAAD/GBR4/xYSbf8DAg7/JB62/ysk2v8qI9L/KyTX/ygj0O4oI9PuKyTY/yMdsP8TD13/HhmW/y0m4/8tJeH/BgUe/wAAAP8AAAD/GRV9/y0m4/8qI9H/KiPS/ysk1/8oI9DuKCPQ7isk1/8rJNn/LSXh/ywk2v8rJNn/KSLL/wQDFP8AAAD/FRFo/y0m4/8qI9T/KiPS/yoj0v8rJNf/KCPQ7igj0O4rJNf/KiPS/yoj0v8sJd3/HhmV/yAbov8KCDL/AAAA/x4Zl/8xKfT/LCXc/ysj1f8qI9H/KyTX/ygj0O4oI9DuKyTX/yoj0v8qI9L/LCXe/x0YkP8mH7z/FxNy/wAAAP8KCDH/FhJt/xcTcf8iHaz/KyTa/ysk1/8oI9DuKCPQ7isk1/8qI9L/KiPS/y0l3/8cF4r/GRV+/x0Ykf8AAAD/AAAA/wwKPf8aFYH/GRV8/y0m4v8rJNf/KCPQ7igj0O4rJNf/KiPS/yoj0v8rJNb/KCHJ/xAOUv8GBR3/AAAA/wAAAP8RDlb/JB60/xMQXv8tJd//KyTX/ygj0O4oI9DuKyTX/yoj0v8qI9L/KiPR/ysk1/8sJd3/IRyn/xANUf8AAAL/GBR6/yAanv8UEGL/KSLL/ywk2v8oI9DuKCPQ7isk1/8qI9L/KiPS/yoj0v8qI9L/KiPS/y0m4/8pIs3/AAAA/w0LQv8fGpv/Cggy/yIcqv8tJeD/KCPQ7igi0vQsJd3/KyTX/ysk1/8rJNf/KyTX/ysk1/8sJNr/KiPT/xIPXP8dGJP/LSbi/xkVff8oIsr/LSXg/ygi0vQpItLeKSTX7igj0O4oI9DuKCPQ7igj0O4oI9DuKCPP7igj1O4rJuPuKiTa7igj0+4pI9buKCPQ7ikk1u4pItLeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+			rel="icon"
+			type="image/x-icon"
+		/>
+
+		<script
+			defer
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin=""
+		></script>
+		<script
+			defer
+			src="js/main.js"
+		></script>
+
+		<title>Workout Diary</title>
+	</head>
+	<body>
+		<div class="sidebar">
+			<h1 class="header">Workout Diary</h1>
+
+			<ul class="workouts">
+				<form class="hidden form">
+					<div class="form__row">
+						<label class="form__label">Type</label>
+						<select class="form__input form__input--type">
+							<option value="running">Running</option>
+							<option value="cycling">Cycling</option>
+							<option value="skiing">Skiing</option>
+							<option value="swimming">Swimming</option>
+						</select>
+					</div>
+					<div class="form__row">
+						<label class="form__label">Distance</label>
+						<input
+							class="form__input form__input--distance"
+							placeholder="km"
+						/>
+					</div>
+					<div class="form__row">
+						<label class="form__label">Duration</label>
+						<input
+							class="form__input form__input--duration"
+							placeholder="min"
+						/>
+					</div>
+					<div class="form__row">
+						<label class="form__label">Cadence</label>
+						<input
+							class="form__input form__input--cadence"
+							placeholder="steps/min"
+						/>
+					</div>
+					<div class="form__row--hidden form__row">
+						<label class="form__label">Elevation</label>
+						<input
+							class="form__input form__input--elevation"
+							placeholder="m"
+						/>
+					</div>
+					<button class="form__btn">OK</button>
+				</form>
+			</ul>
+			<button class="reset-btn">Reset Workouts</button>
+		</div>
+
+		<div id="map"></div>
+	</body>
+</html>
