@@ -12,4 +12,4 @@ A simple interactive workout tracker built with HTML, CSS, and JavaScript. It le
 ## Deployment
 
 This project is published on GitHub Pages and can be viewed at:
-https://erix319.github.io/workout-diary/
+https://pafuluofu-dev.github.io/workout-diary/
